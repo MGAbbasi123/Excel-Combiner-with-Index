@@ -70,4 +70,4 @@ A dedicated sheet for each subfolder (e.g., "Folder A", "Folder B", "Folder C"),
 
 A success message will be printed to the console upon completion.
 
-✅ Workbook created successfully: (root_dir)\combined_excel.xlsx
+✅ Workbook created successfully: (root_dir)\(file_name).xlsx
