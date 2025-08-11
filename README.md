@@ -1,73 +1,86 @@
-Excel Combiner with Index
-This Python script automates the process of combining multiple Excel files spread across different subdirectories into a single, organized Excel workbook. It also generates an interactive "Home" sheet that acts as an index, allowing for easy navigation between the combined data sheets.
+Excel Combiner Desktop App
+This is a user-friendly desktop application built with Python's Tkinter library that automates the process of combining multiple Excel files from various subdirectories into a single, organized Excel workbook. It also creates an interactive "Home" sheet for easy navigation.
+
+This application is designed to run directly on your local computer and allows you to select a root directory from your file system.
 
 ✨ Features
-Batch Processing: Automatically scans a specified root directory for subfolders and processes all Excel files (.xls or .xlsx) found within them.
+Local Folder Selection: Easily select any root directory on your local computer using a familiar file browser interface.
 
-Data Consolidation: Concatenates data from all Excel files within a given subfolder into a single DataFrame, creating a dedicated sheet for each subfolder in the output workbook.
+Batch Processing: Automatically scans the selected root directory for subfolders and processes all Excel files (.xls or .xlsx) found within them.
+
+Data Consolidation: Combines data from all Excel files within a given subfolder into a single DataFrame, creating a dedicated sheet for each subfolder in the output workbook.
 
 Source File Tracking: Adds a SourceFile column to each combined DataFrame, indicating the original Excel file from which each row of data originated.
 
-Interactive Index: Creates a "Home" sheet with hyperlinks to each generated data sheet, enabling quick navigation.
+Interactive Index: Generates a "Home" sheet with clickable hyperlinks to each created data sheet, enabling quick navigation within the output workbook.
 
 Back-to-Home Links: Each data sheet includes a "← Back to Home" link for seamless return to the index.
 
 Dynamic Sheet Naming: Uses subfolder names for sheet titles, truncating them to comply with Excel's 31-character limit.
 
-Error Handling: Includes basic error handling for unreadable Excel files.
+User Feedback: Provides real-time status messages and pop-up alerts for successful operations or errors.
 
 🛠️ Prerequisites
-Before running the script, ensure you have the following Python libraries installed:
+To run this application, you need Python installed on your computer, along with the following libraries:
 
 pandas
 
 openpyxl
 
-You can install them using pip:
+tkinter (This is usually included with standard Python installations)
+
+You can install the required libraries using pip from your terminal or command prompt:
 
 pip install pandas openpyxl
 
-🚀 Usage
-Clone the Repository (or Download the Script):
+🚀 How to Run the Application
+Save the Script:
+Copy the entire Python code for the Tkinter application (the one with import tkinter as tk) and save it to a file named excel_combiner_app.py (or any .py name you prefer) on your local computer.
 
-git clone https://github.com/your_username/your_repo_name.git
-cd your_repo_name
+Open Your Terminal/Command Prompt:
+Navigate to the directory where you saved excel_combiner_app.py.
 
-(Replace your_username and your_repo_name with your actual GitHub details.)
+cd /path/to/your/script/directory
 
-Configure the Root Directory:
-Open the combine_excel.py (or whatever you name your script) file and modify the root_dir variable to point to the directory containing your subfolders with Excel files:
+Execute the Script:
+Run the script using your Python interpreter:
 
-# Set the root directory
-root_dir = Path("root_dir") # <-- Change this to your desired root directory
+python excel_combiner_app.py
 
-Important: Ensure the path uses forward slashes (/) or escaped backslashes (\\) for cross-platform compatibility.
+A new desktop window titled "Excel Combiner" should appear.
 
-Run the Script:
-Execute the script from your terminal:
+⚙️ How to Use the App
+Select Root Directory:
+Click the "Browse Folder" button. A file explorer window will open. Navigate to and select the main directory that contains the subfolders with your Excel files. The selected path will appear in the "Selected Root Directory" field.
 
-python combine_excel.py
+Process Files:
+Once a directory is selected, the "Process Excel Files" button will become active. Click it to start the combination process.
 
-📂 File Structure
-The script expects your Excel files to be organized within subfolders inside the root_dir:
+View Output:
+Upon successful completion, a success message will appear, and the path to the newly created combined Excel workbook will be displayed in the "Output File" field. An informational pop-up will also confirm the success and the output path.
 
-E:/(root_dir)/ 
-├── Folder A/
-│   ├── data1.xls
-│   └── data2.xlsx
-├── Folder B/
-│   ├── sales.xlsx
-│   └── purchases.xls
-└── Folder C/
-    └── report.xlsx
+📂 Expected File Structure
+The script expects your Excel files (.xls or .xlsx) to be organized within subfolders inside the root_dir you select.
+
+Your_Selected_Root_Directory/
+├── Project_A/
+│   ├── data_q1.xls
+│   └── data_q2.xlsx
+├── Department_B/
+│   ├── sales_report.xlsx
+│   └── inventory.xls
+└── Category_C/
+    └── summary.xlsx
 
 📊 Output
-The script will generate a new Excel file named Combined_Workbook_with_Index.xlsx in your specified root_dir. This workbook will contain:
+The application will generate a new Excel file (e.g., Combined_Workbook_with_Index_YYYYMMDD_HHMMSS.xlsx) directly within the root_dir you selected. This workbook will contain:
 
-A Home sheet with clickable links to each combined data sheet.
+A Home sheet serving as an index with clickable links to each combined data sheet.
 
-A dedicated sheet for each subfolder (e.g., "Folder A", "Folder B", "Folder C"), containing all the data from Excel files within that respective subfolder, plus a SourceFile column.
+A dedicated sheet for each subfolder (e.g., "Project A", "Department B", "Category C"), containing all the data from Excel files within that respective subfolder, plus a SourceFile column.
 
-A success message will be printed to the console upon completion.
+💡 Troubleshooting
+_tkinter.TclError: no display name and no $DISPLAY environment variable
+This error occurs when you try to run a graphical application (like this Tkinter app) in an environment without a display server. This is common if you're trying to run it on a remote server, a virtual machine without a desktop environment, or within certain online coding platforms.
 
-✅ Workbook created successfully: (root_dir)\combined_excel.xlsx
+Solution: This application is designed to run directly on your local computer where you have a graphical user interface. Ensure you are running the excel_combiner_app.py script from your local machine's terminal or command prompt, not on a remote server or a headless environment.
