@@ -51,15 +51,15 @@ python combine_excel.py
 📂 File Structure
 The script expects your Excel files to be organized within subfolders inside the root_dir:
 
-E:/(root_dir)/ 
-├── Folder A/
-│   ├── data1.xls
-│   └── data2.xlsx
-├── Folder B/
-│   ├── sales.xlsx
-│   └── purchases.xls
-└── Folder C/
-    └── report.xlsx
+(root_dir)/ 
+    ├── Folder A/
+    │   ├── data1.xls
+    │   └── data2.xlsx
+    ├── Folder B/
+    │   ├── sales.xlsx
+    │   └── purchases.xls
+    └── Folder C/
+        └── report.xlsx
 
 📊 Output
 The script will generate a new Excel file named Combined_Workbook_with_Index.xlsx in your specified root_dir. This workbook will contain:
